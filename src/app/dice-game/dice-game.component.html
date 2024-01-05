@@ -1,0 +1,35 @@
+<h1 id="heading">Snake Ladder Game</h1>
+<div class="container">
+    <!-- Winning Modal -->
+    <div class="modal-overlay" *ngIf="winner">
+        <div class="modal">
+            <h2>Congratulations!</h2>
+            <p>{{ winner === 'blue' ? 'Blue Player' : 'Yellow Player' }} is the winner!</p>
+            <button (click)="resetGame()">New Game</button>
+        </div>
+    </div>
+
+
+    <div class="grid" [ngStyle]="{ 'background-image': 'url(\'assets/SnakesAndLadders.jpg\')' }">
+        <div *ngFor="let row of grid" class="row">
+            <div *ngFor="let step of row" class="step"
+                [ngClass]="{ 'active-blue': step === bluePosition, 'active-yellow': step === yellowPosition && step !== bluePosition }">
+                <span *ngIf="step === bluePosition" class="step-number">B</span>
+                <span *ngIf="step === yellowPosition && step !== bluePosition" class="step-number">Y</span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="currentPlayer === 'blue'" class="player-blue" [ngClass]="{ 'active': currentPlayer === 'blue' }">
+        <h2>Blue Player</h2>
+        <button (click)="rollDice()">Roll Dice</button>
+        <p>Position: {{ bluePosition }}</p>
+        <p>Dice Roll: {{ diceRoll }}</p>
+    </div>
+
+    <div *ngIf="currentPlayer === 'yellow'" class="player-yellow" [ngClass]="{ 'active': currentPlayer === 'yellow' }">
+        <h2>Yellow Player</h2>
+        <button (click)="rollDice()">Roll Dice</button>
+        <p>Position: {{ yellowPosition }}</p>
+        <p>Dice Roll: {{ diceRoll }}</p>
+    </div>
+</div>

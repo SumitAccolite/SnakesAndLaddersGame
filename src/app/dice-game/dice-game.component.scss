@@ -1,0 +1,119 @@
+.container {
+    margin: 150px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 900px;
+    margin-top: 50px;
+}
+
+.modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.player-blue,
+.player-yellow {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.player-blue.active {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.player-yellow.active {
+    background-color: yellow;
+    border-color: yellow;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Set a transparent white background */
+    padding: 10px;
+    /* Add padding to separate the grid from the background */
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 78.5px;
+    height: 78.5px;
+    //background-color: rgba(255, 255, 255, 0.8);
+    /* Set a slightly opaque white background for each step */
+    //border: 1px solid #999;
+}
+
+.step.active-blue {
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.step.active-yellow {
+    background-color: yellowgreen;
+    border-radius: 50%;
+}
+
+.step::before {
+    content: attr(data-number);
+}
+
+.active-blue,
+.active-yellow {
+    width: 30px;
+    height: 30px;
+}
+
+#heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 1px 1px;
+    color: blueviolet;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* Change the color to match your design */
+    font-size: 18px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    /* Adjust the font weight as needed */
+}
